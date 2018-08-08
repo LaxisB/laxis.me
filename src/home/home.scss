@@ -38,12 +38,12 @@
             left: 0;
             height: 2px;
             background: $primary;
-            width: 5%;
+            width: 5px;
             transition: width 100ms ease-in;
         }
 
         &:hover::before {
-            width: 25%;
+            width: 90%;
         }
     }
 
@@ -74,14 +74,15 @@
 
         &__site,
         &__name {
-            flex: 1 1 50%;
             padding: 0 0.5em;
         }
         &__site {
+            flex: 0 0 50%;
             text-align: right;
             font-size: fz(-1);
         }
         &__name {
+            flex: none;
             &::before {
                 left: 0.5em;
                 bottom: -2px;
