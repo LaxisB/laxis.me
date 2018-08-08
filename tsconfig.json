@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "allowJs": true,
+        "allowSyntheticDefaultImports": false,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "noEmitOnError": true,
+        "noImplicitAny": false,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "sourceMap": true,
+        "target": "es2017",
+        "module": "esnext",
+        "jsx": "preserve",
+        "baseUrl": ".",
+        "lib": ["es2017", "dom"],
+        "paths": {
+            "components/*": ["./src/app/components/*"],
+            "lib/*": ["./src/app/lib/*"],
+            "assets/*": ["./src/assets/*"]
+        }
+    },
+    "include": ["src/**/*", "declarations.d.ts"]
+}

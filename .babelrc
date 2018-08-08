@@ -1,0 +1,23 @@
+{
+    "presets": [
+        [
+            "@babel/env",
+            {
+                "modules": false,
+                "loose": true,
+                "targets": {
+                    "browsers": ["last 2 versions", "not < 1%", "Safari >= 10", "Chrome 41"]
+                },
+                "useBuiltIns": "entry"
+            }
+        ],
+        "@babel/typescript"
+    ],
+    "plugins": [
+        "@babel/syntax-dynamic-import",
+        "@babel/plugin-syntax-object-rest-spread",
+        "@babel/plugin-syntax-class-properties",
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-proposal-class-properties"
+    ]
+}
