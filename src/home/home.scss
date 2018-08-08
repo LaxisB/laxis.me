@@ -1,18 +1,86 @@
 @import "scss/vars";
 @import "scss/reset";
 
-noscript{
+.container{
     display: block; // dev;
-    max-width: 600px;
-    margin: 10% auto;
+    margin: 0 auto;
     line-height: 1.8;
+    padding: 3rem;
+    text-align: center;
+
+    @include medium{
+        margin: 10% auto;
+        max-width: 600px;
+        padding: 5rem;
+        background: white;
+        box-shadow: 0 0 50px rgba(12, 12, 12, 0.05);
+    }
 
     header{
         font-size: fz(2);
     }
+
+    a{
+        text-decoration: none;
+        color: $primary;
+    }
+    
+    svg{
+        width: 100px;
+        margin: 2rem auto;
+        stroke-dashoffset: 1500;
+        stroke-dasharray: 500;
+        stroke-width: 2px;
+        animation: logo-appear 2s ease-in forwards;
+    }
+
+    ul{
+        list-style: none;
+    }
+    .socialmedia{
+        opacity: 0;
+        animation: appear 500ms ease-in forwards;
+        animation-delay: 1s;
+        text-align: left;
+        &__row{
+            display: flex;
+        }
+
+        &__site,
+        &__name{
+            flex: 1 1 50%;
+            padding: 0 .5em;
+        }
+        &__site{
+            text-align: right;
+        }
+    }
 }
 
-a{
-    text-decoration: none;
-    color: $primary;
+
+
+@keyframes logo-appear{
+    0%{
+        fill: fade-out(#3E3E3E, 1);
+    }
+    30%{
+        fill: fade-out(#3E3E3E, 1);
+    }
+    90%{
+        fill: #3E3E3E;
+    }
+    100%{
+        stroke-dashoffset: 0;
+        fill: #3E3E3E;
+        stroke-width: 0;
+    }
+}
+
+@keyframes appear{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

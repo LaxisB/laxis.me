@@ -29,7 +29,6 @@ module.exports = merge(base, {
             }
         }
     },
-    stats: true,
     module: {
         rules: [
             {

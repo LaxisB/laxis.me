@@ -25,6 +25,11 @@ module.exports = merge(base, {
         }
     },
     devtool: "cheap-eval-source-map",
+    output: {
+        path: path.join(__dirname, "../build"),
+        publicPath: "/",
+        filename: "[name].js"
+    },
     module: {
         rules: [
             {
