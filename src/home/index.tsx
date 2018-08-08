@@ -1,2 +1,2 @@
 import "@babel/polyfill";
-import "./reset.scss";
+import "./home.scss";

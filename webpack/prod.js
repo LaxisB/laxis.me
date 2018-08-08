@@ -18,16 +18,16 @@ module.exports = merge(base, {
                 vendor: {
                     test: /[\\/]node_modules[\\/]/,
                     name: "vendor",
-                    chunks: "initial",
+                    chunks: "initial"
                 },
                 styles: {
                     name: "styles",
                     test: /\.css$/,
                     chunks: "all",
-                    enforce: true,
-                },
-            },
-        },
+                    enforce: true
+                }
+            }
+        }
     },
     stats: true,
     module: {
@@ -39,8 +39,8 @@ module.exports = merge(base, {
                     {
                         loader: "css-loader",
                         options: {
-                            minimize: true,
-                        },
+                            minimize: true
+                        }
                     },
                     {
                         loader: "postcss-loader",
@@ -51,25 +51,25 @@ module.exports = merge(base, {
                                 cssdedupe(),
                                 nano({
                                     reduceIdents: false,
-                                    zindex: false,
-                                }),
-                            ],
-                        },
+                                    zindex: false
+                                })
+                            ]
+                        }
                     },
                     {
                         loader: "sass-loader",
-                        options: { includePaths: [path.resolve(__dirname, "../src")] },
-                    },
-                ],
-            },
-        ],
+                        options: { includePaths: [path.resolve(__dirname, "../src")] }
+                    }
+                ]
+            }
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("production"),
-            },
+                NODE_ENV: JSON.stringify("production")
+            }
         }),
-        new MiniExtractPlugin({ filename: "[name].[chunkhash].css", allChunks: true }),
-    ],
+        new MiniExtractPlugin({ filename: "[name]/[chunkhash].css", allChunks: true })
+    ]
 });

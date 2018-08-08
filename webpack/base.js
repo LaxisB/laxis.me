@@ -14,20 +14,21 @@ const DIST = path.join(__dirname, "../build");
 module.exports = {
     context: path.resolve(__dirname, "../"),
     entry: {
-        app: ["./src/app/index.tsx"]
+        home: ["./src/home/index.tsx"],
+        siege: ["./src/siege/index.tsx"]
     },
     output: {
         path: DIST,
         publicPath: "/",
-        filename: "[name].[chunkhash].js",
-        chunkFilename: "[name].[chunkhash].js"
+        filename: "[name]/[chunkhash].js",
+        chunkFilename: "[name]/[chunkhash].js"
     },
     target: "web",
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
         alias: {
-            components: path.join(__dirname, "../src/app/components"),
-            lib: path.join(__dirname, "../src/app/lib"),
+            components: path.join(__dirname, "../src/home/components"),
+            lib: path.join(__dirname, "../src/home/lib"),
             assets: path.join(__dirname, "../src/assets")
         }
     },
@@ -113,12 +114,19 @@ module.exports = {
             { from: "src/favicons/*", to: "[name].[ext]" },
             { from: "src/*.html", to: "[name].html" },
             { from: "src/*.txt", to: "[name].txt" },
-            { from: "src/app/sw.js", to: "[name].js" },
+            { from: "src/sw.js", to: "[name].js" },
             { from: "src/app.json", to: "[name].json" },
             { from: "src/_redirects", to: "[name]" }
         ]),
         new HtmlWebpackPlugin({
-            template: "./src/index.ejs"
+            template: "./src/index.ejs",
+            filename: "index.html",
+            chunks: ["home"]
+        }),
+        new HtmlWebpackPlugin({
+            template: "./src/siege/index.ejs",
+            filename: "siege/index.html",
+            chunks: ["siege"]
         }),
         new SpriteLoaderPlugin(),
         new ForkTsCheckerWebpackPlugin({

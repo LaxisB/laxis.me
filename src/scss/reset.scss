@@ -1,4 +1,4 @@
-@import "scss/vars";
+@import "vars";
 
 *, *::before, *::after{
     margin: 0;
@@ -16,21 +16,4 @@ body{
     color: $foreground;
     font-size: 1.6rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-noscript{
-    display: block; // dev;
-    max-width: 600px;
-    margin: 10% auto;
-    line-height: 1.8;
-
-    header{
-        font-size: fz(2);
-    }
-}
-
-
-a{
-    text-decoration: none;
-    color: $primary;
 }

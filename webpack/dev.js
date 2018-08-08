@@ -10,11 +10,11 @@ module.exports = merge(base, {
     devServer: {
         contentBase: path.resolve("./build"),
         host: "localhost",
-        compress: true,
+        compress: false,
         inline: true,
         hot: true,
         noInfo: true,
-        lazy: false,
+        lazy: true,
         port: 9000,
         stats: "errors-only",
         disableHostCheck: true,
@@ -25,11 +25,6 @@ module.exports = merge(base, {
         }
     },
     devtool: "cheap-eval-source-map",
-    output: {
-        path: path.join(__dirname, "../build"),
-        publicPath: "/",
-        filename: "[name].js"
-    },
     module: {
         rules: [
             {
