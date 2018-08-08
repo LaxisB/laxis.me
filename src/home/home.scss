@@ -1,31 +1,53 @@
 @import "scss/vars";
 @import "scss/reset";
 
-.container{
-    display: block; // dev;
-    margin: 0 auto;
+.container {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    width: 100vw;
+    transform: translate(-50%, -50%);
+
     line-height: 1.8;
     padding: 3rem;
     text-align: center;
 
-    @include medium{
-        margin: 10% auto;
+    @include medium {
+        margin: 0 auto;
         max-width: 600px;
         padding: 5rem;
         background: white;
-        box-shadow: 0 0 50px rgba(12, 12, 12, 0.05);
+        box-shadow: 0 0 50px hsla(0, 0%, 5%, 0.05), 0 0 20px hsla(0, 0%, 1%, 0.05);
+        animation: shadow 1s ease-in;
     }
 
-    header{
+    header {
         font-size: fz(2);
     }
 
-    a{
+    a {
         text-decoration: none;
-        color: $primary;
+        color: $foreground;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: $primary;
+            width: 5%;
+            transition: width 100ms ease-in;
+        }
+
+        &:hover::before {
+            width: 25%;
+        }
     }
-    
-    svg{
+
+    svg {
         width: 100px;
         margin: 2rem auto;
         stroke-dashoffset: 1500;
@@ -34,53 +56,68 @@
         animation: logo-appear 2s ease-in forwards;
     }
 
-    ul{
+    ul {
         list-style: none;
     }
-    .socialmedia{
+    .socialmedia {
         opacity: 0;
         animation: appear 500ms ease-in forwards;
         animation-delay: 1s;
         text-align: left;
-        &__row{
+        line-height: 1em;
+
+        &__row {
             display: flex;
+            align-items: baseline;
+            margin-bottom: 1em;
         }
 
         &__site,
-        &__name{
+        &__name {
             flex: 1 1 50%;
-            padding: 0 .5em;
+            padding: 0 0.5em;
         }
-        &__site{
+        &__site {
             text-align: right;
+            font-size: fz(-1);
+        }
+        &__name {
+            &::before {
+                left: 0.5em;
+                bottom: -2px;
+            }
         }
     }
 }
 
-
-
-@keyframes logo-appear{
-    0%{
-        fill: fade-out(#3E3E3E, 1);
+@keyframes logo-appear {
+    0% {
+        fill: fade-out(#3e3e3e, 1);
     }
-    30%{
-        fill: fade-out(#3E3E3E, 1);
+    30% {
+        fill: fade-out(#3e3e3e, 1);
     }
-    90%{
-        fill: #3E3E3E;
+    90% {
+        fill: #3e3e3e;
     }
-    100%{
+    100% {
         stroke-dashoffset: 0;
-        fill: #3E3E3E;
+        fill: #3e3e3e;
         stroke-width: 0;
     }
 }
 
-@keyframes appear{
-    from{
+@keyframes appear {
+    from {
         opacity: 0;
     }
-    to{
+    to {
         opacity: 1;
+    }
+}
+@keyframes shadow {
+    from {
+        box-shadow: none;
+        background: $background;
     }
 }
