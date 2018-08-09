@@ -4,6 +4,7 @@ const util = require("util");
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlInlinePlugin = require("html-webpack-inline-source-plugin");
 const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
@@ -120,13 +121,15 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index.ejs",
             filename: "index.html",
-            chunks: ["home"]
+            chunks: ["home"],
+            inlineSource: ".css$"
         }),
         new HtmlWebpackPlugin({
             template: "./src/siege/index.ejs",
             filename: "siege/index.html",
             chunks: ["siege"]
         }),
+        new HtmlInlinePlugin(),
         new SpriteLoaderPlugin(),
         new ForkTsCheckerWebpackPlugin({
             checkSyntacticErrors: true
