@@ -48,8 +48,7 @@ $card_width: 600px;
     }
     &__job{
         color: $primary;
-    }
-    &__visuals{
+        font-size: fz(-1);
     }
     &__content{
         opacity: 0;
@@ -121,6 +120,8 @@ $card_width: 600px;
         }
     }
 }
+
+.scrapeblock{ display: none; }
 
 @keyframes logo-appear {
     0% {
