@@ -1,4 +1,6 @@
 import "@babel/polyfill";
+import { render } from "inferno";
+import { Home } from "./components/Home";
 import "./siege.scss";
 
-console.log("siege subpage!");
+render(<Home />, document.getElementById("mount"));

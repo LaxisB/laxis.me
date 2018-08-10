@@ -127,7 +127,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/siege/index.ejs",
             filename: "siege/index.html",
-            chunks: ["siege"]
+            chunks: ["vendor", "siege"]
         }),
         new HtmlInlinePlugin(),
         new SpriteLoaderPlugin(),

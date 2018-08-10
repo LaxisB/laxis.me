@@ -38,7 +38,8 @@ module.exports = merge(base, {
                     {
                         loader: "css-loader",
                         options: {
-                            minimize: true
+                            modules: true,
+                            sourceMap: true
                         }
                     },
                     {
@@ -52,12 +53,16 @@ module.exports = merge(base, {
                                     reduceIdents: false,
                                     zindex: false
                                 })
-                            ]
+                            ],
+                            sourceMap: true
                         }
                     },
                     {
                         loader: "sass-loader",
-                        options: { includePaths: [path.resolve(__dirname, "../src")] }
+                        options: {
+                            includePaths: [path.resolve(__dirname, "../src")],
+                            sourceMap: true
+                        }
                     }
                 ]
             }

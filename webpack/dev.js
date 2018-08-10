@@ -14,7 +14,7 @@ module.exports = merge(base, {
         inline: true,
         hot: true,
         noInfo: true,
-        lazy: true,
+        lazy: false,
         port: 9000,
         stats: "errors-only",
         disableHostCheck: true,
@@ -35,18 +35,33 @@ module.exports = merge(base, {
             {
                 test: /\.scss$/,
                 use: [
-                    { loader: "style-loader" },
-                    { loader: "cache-loader" },
-                    { loader: "css-loader" },
+                    {
+                        loader: "style-loader",
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,
+                            sourceMap: true,
+                            localIdentName: "[name]-[local]"
+                        }
+                    },
                     {
                         loader: "postcss-loader",
                         options: {
-                            plugins: [autoprefixer(), mqpacker(), cssdedupe()]
+                            plugins: [autoprefixer(), mqpacker(), cssdedupe()],
+                            sourceMap: true
                         }
                     },
                     {
                         loader: "sass-loader",
-                        options: { includePaths: [path.resolve(__dirname, "../src")] }
+                        options: {
+                            includePaths: [path.resolve(__dirname, "../src")],
+                            sourceMap: true
+                        }
                     }
                 ]
             }

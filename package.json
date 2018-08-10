@@ -11,7 +11,8 @@
         "build:dev": "webpack --mode development --config webpack/dev.js"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.0.0-beta.42"
+        "@babel/polyfill": "^7.0.0-beta.42",
+        "inferno": "^5.4.0"
     },
     "devDependencies": {
         "@babel/core": "^7.0.0-beta.42",
@@ -25,6 +26,7 @@
         "@types/webpack-env": "^1.13.3",
         "autoprefixer": "^6.3.7",
         "babel-loader": "^8.0.0-beta.2",
+        "babel-plugin-inferno": "^5.1.0",
         "cache-loader": "^1.2.2",
         "copy-webpack-plugin": "^4.5.1",
         "cross-env": "^3.1.3",
