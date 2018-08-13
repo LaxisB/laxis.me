@@ -114,6 +114,7 @@ module.exports = {
             // { from: "src/assets", to: "assets" },
             { from: "src/favicons/*", to: "[name].[ext]" },
             { from: "src/*.html", to: "[name].html" },
+            { from: "src/assets/*", to: "assets/[name].[ext]" },
             { from: "src/*.txt", to: "[name].txt" },
             { from: "src/sw.js", to: "[name].js" },
             { from: "src/_redirects", to: "[name]" }
