@@ -6,4 +6,5 @@ import "./home.scss";
  * since we have an invisible span in our html to block scrapers
  */
 const mailEl: HTMLAnchorElement = document.querySelector(".links__row--email .links__name");
-mailEl.setAttribute("href", `mailto:${mailEl.innerText}`);
+const mailAddress = mailEl.innerText.replace(/\s/g, "");
+mailEl.setAttribute("href", `mailto:${mailAddress}`);
