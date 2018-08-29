@@ -12,9 +12,7 @@ module.exports = merge(base, {
         host: "localhost",
         compress: false,
         inline: true,
-        hot: true,
         noInfo: true,
-        lazy: true,
         port: 9000,
         stats: "errors-only",
         disableHostCheck: true,
@@ -53,7 +51,6 @@ module.exports = merge(base, {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("development")
