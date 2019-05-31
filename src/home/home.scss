@@ -23,7 +23,7 @@ $card_width: 600px;
         padding: 5rem;
         background: white;
         box-shadow: 0 0 50px hsla(0, 0%, 5%, 0.05), 0 0 20px hsla(0, 0%, 1%, 0.05);
-        animation: shadow 500ms ease-in;
+        animation: shadow 100ms ease-in;
 
         display: flex;
         flex-direction: row;
@@ -51,10 +51,9 @@ $card_width: 600px;
         font-size: fz(-1);
     }
     &__content{
-        opacity: 0;
+        opacity: 0.2;
         text-align: center;
-        animation: appear 500ms ease-in forwards;
-        animation-delay: 200ms;
+        animation: appear 200ms ease-in forwards;
     }
 
     a {
@@ -141,7 +140,7 @@ $card_width: 600px;
 
 @keyframes appear {
     from {
-        opacity: 0;
+        opacity: 0.2;
     }
     to {
         opacity: 1;
