@@ -123,7 +123,7 @@ module.exports = {
             template: "./src/index.ejs",
             filename: "index.html",
             chunks: ["home"],
-            inlineSource: ".css$"
+            inlineSource: ".(js|css)$"
         }),
         new HtmlWebpackPlugin({
             template: "./src/siege/index.ejs",
