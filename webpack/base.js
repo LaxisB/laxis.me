@@ -7,8 +7,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const HtmlInlinePlugin = require("html-webpack-inline-source-plugin");
 const SpriteLoaderPlugin = require("svg-sprite-loader/plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-const ManifestPlugin = require("webpack-manifest-plugin");
-// const ManifestPlugin = require("webpack-assets-manifest");
 
 const DIST = path.join(__dirname, "../build");
 
@@ -16,7 +14,6 @@ module.exports = {
     context: path.resolve(__dirname, "../"),
     entry: {
         home: ["./src/home/index.tsx"],
-        siege: ["./src/siege/index.tsx"]
     },
     output: {
         path: DIST,
@@ -94,7 +91,6 @@ module.exports = {
                             placeholder: true,
                             placeholderSize: 40,
                             quality: 85,
-                            adapter: require("responsive-loader/sharp")
                         }
                     },
                     {
@@ -106,7 +102,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new ManifestPlugin(),
         new webpack.NamedModulesPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
@@ -116,7 +111,6 @@ module.exports = {
             { from: "src/*.html", to: "[name].html" },
             { from: "src/assets/*", to: "assets/[name].[ext]" },
             { from: "src/*.txt", to: "[name].txt" },
-            { from: "src/sw.js", to: "[name].js" },
             { from: "src/_redirects", to: "[name]" }
         ]),
         new HtmlWebpackPlugin({
@@ -124,11 +118,6 @@ module.exports = {
             filename: "index.html",
             chunks: ["home"],
             inlineSource: ".(js|css)$"
-        }),
-        new HtmlWebpackPlugin({
-            template: "./src/siege/index.ejs",
-            filename: "siege/index.html",
-            chunks: ["siege"]
         }),
         new HtmlInlinePlugin(),
         new SpriteLoaderPlugin(),
