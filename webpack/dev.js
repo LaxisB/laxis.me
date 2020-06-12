@@ -19,19 +19,19 @@ module.exports = merge(base, {
         historyApiFallback: true,
         watchOptions: {
             aggregateTimeout: 100,
-            poll: 500
-        }
+            poll: 500,
+        },
     },
     devtool: "cheap-eval-source-map",
     output: {
         path: path.join(__dirname, "../build"),
         publicPath: "/",
-        filename: "[name].js"
+        filename: "[name].js",
     },
     module: {
         rules: [
             {
-                test: /\.scss$/,
+                test: /\.s?css$/,
                 use: [
                     { loader: "style-loader" },
                     { loader: "cache-loader" },
@@ -39,22 +39,22 @@ module.exports = merge(base, {
                     {
                         loader: "postcss-loader",
                         options: {
-                            plugins: [autoprefixer(), mqpacker(), cssdedupe()]
-                        }
+                            plugins: [autoprefixer(), mqpacker(), cssdedupe()],
+                        },
                     },
                     {
                         loader: "sass-loader",
-                        options: { includePaths: [path.resolve(__dirname, "../src")] }
-                    }
-                ]
-            }
-        ]
+                        options: { includePaths: [path.resolve(__dirname, "../src")] },
+                    },
+                ],
+            },
+        ],
     },
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
-                NODE_ENV: JSON.stringify("development")
-            }
-        })
-    ]
+                NODE_ENV: JSON.stringify("development"),
+            },
+        }),
+    ],
 });

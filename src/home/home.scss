@@ -2,7 +2,7 @@
 @import "scss/reset";
 
 // define height to width ratio. a 'standard' business card is 3.5 by 2 inches
-$card_ratio: 2/3.5; 
+$card_ratio: 2/3.5;
 $card_width: 600px;
 
 .card {
@@ -19,46 +19,42 @@ $card_width: 600px;
     @include medium {
         margin: 0 auto;
         max-width: $card_width;
-        height: $card_width*$card_ratio;
+        height: $card_width * $card_ratio;
         padding: 5rem;
-        background: white;
-        box-shadow: 0 0 50px hsla(0, 0%, 5%, 0.05), 0 0 20px hsla(0, 0%, 1%, 0.05);
+        background: $nord1;
+        box-shadow: 0 0 50px fade-out(black, 0.9), 0 0 20px fade-out(black, 0.8);
         animation: shadow 100ms ease-in;
 
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-around;
-
-
-        &__content{
+        &__visuals {
+            padding-right: 5rem;
+        }
+        &__content {
             text-align: left;
         }
 
-        &__header{
-            margin-bottom: .5em;
+        &__header {
+            margin-bottom: 0.5em;
         }
     }
 
-    &__header {
-        font-size: fz(1);
-        font-weight: 300;
-        text-align: center;
-        margin-bottom: 1em;
+    &__visuals {
+        flex: 1 1 40%;
+        padding-right: 3rem;
     }
-    &__job{
-        color: $primary;
-        font-size: fz(-1);
-    }
-    &__content{
+    &__content {
+        flex: 1 1 60%;
         opacity: 0.2;
         text-align: center;
-        animation: appear 200ms ease-in forwards;
+        animation: appear 100ms cubic-bezier(0.85, 0, 0.15, 1) forwards;
     }
 
     a {
         text-decoration: none;
-        color: $foreground;
+        color: $nord5;
         position: relative;
 
         &::before {
@@ -68,7 +64,7 @@ $card_width: 600px;
             bottom: 0;
             left: 0;
             height: 1px;
-            background: $primary;
+            background: $nord8;
             width: 60%;
         }
     }
@@ -77,19 +73,21 @@ $card_width: 600px;
         width: 100px;
         stroke-dashoffset: 1500;
         stroke-dasharray: 500;
-        stroke-width: 2px;
+        stroke-width: 3px;
+        stroke: $nord8;
         animation: logo-appear 2s ease-in forwards;
+        fill: none;
     }
-    .links {
+    .list {
         text-align: left;
         line-height: 1em;
 
-        @include medium{
-            &__row{
-                margin-bottom: 0.5em;
+        @include medium {
+            &__row {
+                margin-bottom: 1em;
             }
-            &__site{
-                flex: 0 0 4em;
+            &__key {
+                flex: 0 0 5em;
                 padding: 0;
                 text-align: left;
             }
@@ -98,20 +96,22 @@ $card_width: 600px;
         &__row {
             display: flex;
             align-items: baseline;
-            margin-bottom: 1em;
+            margin-bottom: 1.5em;
         }
 
-        &__site,
-        &__name {
+        &__key,
+        &__value {
             padding: 0 0.5em;
         }
-        &__site {
+        &__key {
             flex: 0 0 50%;
             font-size: fz(-1);
             text-align: right;
+            color: $nord4;
         }
-        &__name {
+        &__value {
             flex: none;
+            font-size: fz(0);
             &::before {
                 left: 0.5em;
                 bottom: -2px;
@@ -120,21 +120,28 @@ $card_width: 600px;
     }
 }
 
-.scrapeblock{ display: none; }
+.scrapeblock {
+    display: none;
+}
+
+.discord-tag {
+    font-size: fz(-1);
+}
 
 @keyframes logo-appear {
     0% {
-        fill: fade-out(#3e3e3e, 1);
+        // fill: fade-out($nord8, 1);
         opacity: 0;
     }
     30% {
-        fill: fade-out(#3e3e3e, 1);
+        // fill: fade-out($nord8, 1);
         opacity: 1;
     }
     100% {
         stroke-dashoffset: 0;
-        fill: #3e3e3e;
-        stroke-width: 0;
+        stroke-dasharray: 5000;
+        // fill: $nord8;
+        // stroke-width: 0;
     }
 }
 
@@ -149,6 +156,6 @@ $card_width: 600px;
 @keyframes shadow {
     from {
         box-shadow: none;
-        background: $background;
+        background: $nord1;
     }
 }
