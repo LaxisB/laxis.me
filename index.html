@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#942828" />
+    <meta name="msapplication-TileColor" content="#fafafa" />
+    <meta name="theme-color" content="#fafafa" />
+    <title>laxis.me</title>
+    <meta name="description" content="Space for experiments and abandoned projects" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="laxis.me" />
+    <meta name="og:image" content="https://laxis.me/assets/logo.png" />
+    <meta name="twitter:image" content="https://laxis.me/assets/logo.png" />
+    <meta name="twitter:description" content="Space for experiments and abandoned projects" />
+    <style type="text/css">
+        *,
+        :after,
+        :before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            font-size: 62.5%
+        }
+
+        body {
+            background: #2e3440;
+            color: #eceff4;
+            font-size: 1.6rem;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif
+        }
+
+        .card {
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+            width: 100vw;
+            transform: translate(-50%, -50%);
+            line-height: 1.8;
+            padding: 3rem;
+            text-align: center
+        }
+
+        .card__visuals {
+            -ms-flex: 1 1 40%;
+            flex: 1 1 40%;
+        }
+
+        .card__content {
+            -ms-flex: 1 1 60%;
+            flex: 1 1 60%;
+            opacity: .2;
+            text-align: center;
+            animation: appear .1s cubic-bezier(.85, 0, .15, 1) forwards
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #e5e9f0;
+            position: relative
+        }
+
+        .card a:before {
+            content: "";
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            background: #88c0d0;
+            width: 60%
+        }
+
+        .card__logo {
+            width: 100px;
+            stroke-dashoffset: 1500;
+            stroke-dasharray: 500;
+            stroke-width: 3px;
+            stroke: #88c0d0;
+            animation: logo-appear 2s ease-in forwards;
+            fill: none
+        }
+
+        .card .list {
+            text-align: left;
+            line-height: 1em
+        }
+
+        .card .list__row {
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-align: baseline;
+            align-items: baseline;
+            margin-bottom: 1.5em
+        }
+
+        .card .list__key,
+        .card .list__value {
+            padding: 0 .5em
+        }
+
+        .card .list__key {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            font-size: .83333em;
+            text-align: right;
+            color: #d8dee9
+        }
+
+        .card .list__value {
+            -ms-flex: none;
+            flex: none;
+            font-size: 1em
+        }
+
+        .card .list__value:before {
+            left: .5em;
+            bottom: -2px
+        }
+
+        .scrapeblock {
+            display: none
+        }
+
+        .discord-tag {
+            font-size: .83333em
+        }
+
+        @keyframes logo-appear {
+            0% {
+                opacity: 0
+            }
+
+            30% {
+                opacity: 1
+            }
+
+            to {
+                stroke-dashoffset: 0;
+                stroke-dasharray: 5000
+            }
+        }
+
+        @keyframes appear {
+            0% {
+                opacity: .2
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes shadow {
+            0% {
+                box-shadow: none;
+                background: #3b4252
+            }
+        }
+
+        @media screen and (min-width:800px) {
+            .card {
+                margin: 0 auto;
+                max-width: 600px;
+                height: 342.85714px;
+                padding: 5rem;
+                background: #3b4252;
+                box-shadow: 0 0 50px rgba(0, 0, 0, .1), 0 0 20px rgba(0, 0, 0, .2);
+                animation: shadow .1s ease-in;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -ms-flex-align: center;
+                align-items: center;
+                -ms-flex-pack: distribute;
+                justify-content: space-around
+            }
+
+            .card__visuals {
+                padding-right: 5rem
+            }
+
+            .card__content {
+                text-align: left
+            }
+
+            .card__header {
+                margin-bottom: .5em
+            }
+
+            .card .list__row {
+                margin-bottom: 1em
+            }
+
+            .card .list__key {
+                -ms-flex: 0 0 5em;
+                flex: 0 0 5em;
+                padding: 0;
+                text-align: left
+            }
+        }
+    </style>
+</head>
+
+<body class="home">
+    <script type="application/ld+json">
+            {
+                "@context": "http://schema.org/",
+                "@type": "Person",
+                "name": "Lars Brix",
+                "url": "https://laxis.me",
+                "email": "contact@laxis.me",
+                "sameAs": [
+                    "https://keybase.io/laxis",
+                    "https://github.com/laxisb",
+                    "https://gitlab.com/laxis",
+                    "https://twitter.com/LaxisB",
+                    "https://git.sr.ht/~laxis/"
+                ]
+            }
+        </script>
+    <div class="card">
+        <div class="card__visuals">
+            <svg class="card__logo" viewBox="0 0 700 800">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M277.203 0L216 29.0592V126.848L61.2686 0.0537109L0 29.0592V383.059V737.059H75V383.059V108.271L216 223.812V383.059V737.059L277.203 766.118L494.203 589.118V531L312.829 383.059L494.203 235.118V177L277.203 0ZM411.171 206.059L291 304.079V108.039L411.171 206.059ZM411.171 560.059L291 462.039V658.079L411.171 560.059Z"
+                    transform="translate(190 14)" title="LaxisB Logo" />
+            </svg>
+        </div>
+        <div class="card__content">
+            <section class="card__link list">
+                <p class="list__row list__row--email">
+                    <span class="list__key">Email</span>
+                    <a target="_BLANK" rel="noopener" class="list__value">
+                        contact@<span class="scrapeblock">##invalid##</span>laxis.me
+                    </a>
+                </p>
+                <p class="list__row list__row--discord">
+                    <span class="list__key">Discord</span>
+                    <span class="list__value discord-name">Laxis<span class="discord-tag">#2048</span></span>
+                </p>
+                <p class="list__row list__row--github">
+                    <span class="list__key">GitHub</span>
+                    <a target="_BLANK" rel="noopener" class="list__value" href="https://github.com/LaxisB/">
+                        LaxisB
+                    </a>
+                </p>
+                <p class="list__row list__row--sourcehut">
+                    <span class="list__key">sourcehut</span>
+                    <a target="_BLANK" rel="noopener" class="list__value" href="https://git.sr.ht/~laxis">
+                        laxis
+                    </a>
+                </p>
+            </section>
+        </div>
+    </div>
+    <script>
+        const mailEl = document.querySelector(".list__row--email .list__value");
+        const mailAddress = mailEl.innerText.replace(/\s/g, "");
+        mailEl.setAttribute("href", `mailto:${mailAddress}`);
+    </script>
+</body>
+
+</html>
